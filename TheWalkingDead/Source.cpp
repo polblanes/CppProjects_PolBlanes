@@ -123,10 +123,10 @@ void main() {
 	} while (zombiesAreAlive && player.isAlive());
 	std::cout << "GAME OVER: ";
 	if (zombiesAreAlive) {
-		std::cout << "ZOMBIE_MAX ate the player's brain!" << std::endl;
+		std::cout << "Zombies ate the player's brain!" << std::endl;
 	}
 	else {
-		std::cout << "Player killed all the ZOMBIE_MAX!" << std::endl;
+		std::cout << "Player killed all the zombies!" << std::endl;
 	}
 }
 
