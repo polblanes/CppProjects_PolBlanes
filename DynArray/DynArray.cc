@@ -2,33 +2,34 @@
 #include <stdlib.h>
 
 //constructors
-DynArray::DynArray(void)
+DynArray::DynArray(void) :
+	m_capacity(DYN_ARRAY_DEFAULT_SIZE),
+	m_size(0),
+	m_data(new int[m_capacity])
 {
-	m_capacity = DYN_ARRAY_DEFAULT_SIZE;
-	m_size = 0;
-	m_data = new int[m_capacity];
 }
 
-DynArray::DynArray(size_t size)
+DynArray::DynArray(size_t size) :
+	m_size(size),
+	m_capacity(size),
+	m_data(new int[m_capacity])
 {
-	m_size = 0;
-	m_capacity = size;;
-	m_data = new int[m_capacity];
 }
 
-DynArray::DynArray(size_t size, const int & value)
+
+DynArray::DynArray(size_t size, const int & value) :
+	m_size(size),
+	m_capacity(size),
+	m_data(new int[m_capacity])
 {
-	m_size = size;
-	m_capacity = size;;
-	m_data = new int[m_capacity];
 	fill(begin(), end(), value);
 }
 
-DynArray::DynArray(int * arr, size_t size)
+DynArray::DynArray(int * arr, size_t size) :
+	m_size(size),
+	m_capacity(size),
+	m_data(new int[m_capacity])
 {
-	m_size = size;
-	m_capacity = size;
-	m_data = new int[m_capacity];
 	for (int i = 0; i < static_cast<int>(m_size); i++) {
 		m_data[i] = arr[i];
 	}
@@ -111,15 +112,46 @@ void DynArray::assign(size_t n, const int & val)
 }
 
 void DynArray::push(const int & val) {
-	DynArray new_m_data(m_capacity + 1, 0);
-	for (int i = 0; i < m_size; i++) {
-		new_m_data.data()[i] = m_data[i];
+	if (m_size < m_capacity) {
+		m_data[m_size] = val;
+		m_size++;
 	}
-	new_m_data[m_size] = val;
-	delete[] m_data;
-	m_data = new_m_data.data();
-	m_capacity += 1;
-	m_size += 1;
+	else {
+		int *arr = new int[m_capacity + 1];
+		for (int i = 0; i < m_size; i++) {
+			arr[i] = m_data[i];
+		}
+		arr[m_size] = val;
+		delete[] m_data;
+		m_data = arr;
+		m_capacity++;
+		m_size++;
+	}
+}
+
+void DynArray::pop(void)
+{
+	m_size--;
+}
+
+void DynArray::erase(size_t position)
+{
+	for (int i = position; i < m_size - 1; i++) {
+		m_data[i] = m_data[i + 1];
+	}
+	m_size--;
+}
+
+void DynArray::swap(DynArray & x)
+{
+	for (int i = 0; i < size(); i++) {
+		m_data[i] = x.data()[i];
+	}
+}
+
+void DynArray::clear(void)
+{
+	m_size = 0;
 }
 
 //relational operators
@@ -137,6 +169,11 @@ bool operator==(const DynArray & lhs, const DynArray & rhs)
 		}
 	}
 	return res;
+}
+
+bool operator!=(const DynArray & lhs, const DynArray & rhs)
+{
+	return !(lhs == rhs);
 }
 
 //utils methods
