@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynArray", "DynArray\DynArr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoinRace", "CoinRace\CoinRace.vcxproj", "{B54A6316-9294-40EB-9243-5C989C98F233}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLStack", "ConsoleApplication1\ConsoleApplication1.vcxproj", "{28097168-A0BF-455A-B84B-A7D74A49B908}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{B54A6316-9294-40EB-9243-5C989C98F233}.Release|x64.Build.0 = Release|x64
 		{B54A6316-9294-40EB-9243-5C989C98F233}.Release|x86.ActiveCfg = Release|Win32
 		{B54A6316-9294-40EB-9243-5C989C98F233}.Release|x86.Build.0 = Release|Win32
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Debug|x64.ActiveCfg = Debug|x64
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Debug|x64.Build.0 = Debug|x64
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Debug|x86.ActiveCfg = Debug|Win32
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Debug|x86.Build.0 = Debug|Win32
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Release|x64.ActiveCfg = Release|x64
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Release|x64.Build.0 = Release|x64
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Release|x86.ActiveCfg = Release|Win32
+		{28097168-A0BF-455A-B84B-A7D74A49B908}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
